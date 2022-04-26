@@ -1,0 +1,8 @@
+colorama==0.4.4
+decorator==5.1.1
+psutil==5.9.0
+pyte==0.8.0
+six==1.16.0
+thefuck==3.32
+wcwidth==0.2.5
+win-unicode-console==0.5
