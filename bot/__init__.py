@@ -1,5 +1,7 @@
 from .Bot import Bot
+from .config import Config
 
 def main():
-    bot = Bot()
+    config = Config()
+    bot = Bot(config=config)
     bot.main()
