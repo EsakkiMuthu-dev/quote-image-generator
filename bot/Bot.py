@@ -8,14 +8,15 @@ from PIL import Image, ImageDraw, ImageFont
 from .config import Config
 import requests
 from .Utils import Utils
-import instapy_cli
+import instabot
 class Bot():
 
     def __init__(self, config) -> None:
         """Automatically post a random image and a random programming quote to the instagram."""
         self.config = config
         self.utils = Utils()
-        self.instapy = instapy_cli.client(username=self.config.getEnvVariable("username"), password=self.config.getEnvVariable("password"))
+        self.bot = instabot.Bot()
+        self.bot.login(username=self.config.getEnvVariable("username"), password=self.config.getEnvVariable("password"))
 
     def getRandomImage(self) -> Image:
         """Get a random image from the instagram."""
@@ -39,7 +40,7 @@ class Bot():
 
         # image width and height
         x1, y1 = (612, 612)
-        fontsize = 32 if len(quote.split()) < 35 else 35
+        fontsize = 36 if len(quote.split()) < 35 else 38
         color = (0,0,0) if self.utils.findImageIsDarkOrBright(Image.open(imagepath)) else (255,255,255)
 
         if(self.utils.findImageIsDarkOrBright(Image.open(imagepath))):
@@ -66,17 +67,10 @@ class Bot():
     def PostImagetoInsta(self):
         """Post the image to the instagram."""
 
-        # get parent directory of the script
         try:
             imagepath = os.path.join(os.path.dirname(__file__), "img.jpg")
             print(imagepath)
-            session = self.instapy
-
-            self.instapy.upload(imagepath, 
-                caption=self.utils.formatTheString(self.getRandomProgrammingQuote()['en']) + "\n\n- " + self.getRandomProgrammingQuote()['author'],
-            )
-        
-            os.remove(imagepath)
+            self.bot.upload_photo(imagepath, caption="Testing one two three")
             print("Posted to instagram")
         except Exception as e:
             print(e)
