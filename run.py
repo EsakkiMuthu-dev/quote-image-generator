@@ -3,7 +3,7 @@ from time import time
 import bot
 import schedule
 
-schedule.every(5).hours.do(bot.main)
+schedule.every(1).hours.do(bot.main)
 
 while True:
     schedule.run_pending()

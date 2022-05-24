@@ -1,11 +1,4 @@
-bot/__pycache__
-
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+*.jpg
+env
+*.log
+bot/__pycache__/
