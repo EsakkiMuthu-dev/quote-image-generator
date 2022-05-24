@@ -64,16 +64,17 @@ class Bot():
         img.save("bot/img.jpg")
         img.save('img.jpg')
 
-    def PostImagetoInsta(self):
+    def PostImagetoInsta(self, quote: str, author: str) -> None:
         """Post the image to the instagram."""
 
         try:
             imagepath = os.path.join(os.path.dirname(__file__), "img.jpg")
-            print(imagepath)
-            self.bot.upload_photo(imagepath, caption="Testing one two three")
+            print("Image Posted")
+            caption = f"{self.utils.formatTheString(quote)}\n\n- {author} + \n #lazyinstabot \n Lazy Insta Bot \U0001f600 Coded and Managed By @rassouniqz...follow for more posts \n #programming #coding #python #bot #programmingquotes #daily #codemore codedaily #developer"
+           
+            self.bot.upload_photo(imagepath, caption=caption)
             print("Posted to instagram")
         except Exception as e:
-            print(e)
             print("Failed to post to instagram")
 
     def main(self) -> None:
@@ -82,7 +83,9 @@ class Bot():
         quote = self.getRandomProgrammingQuote()['en']
         author = self.getRandomProgrammingQuote()['author']
 
+        print("I am called")
+
         self.createImage(quote=quote, author=author)
-        self.PostImagetoInsta()
+        self.PostImagetoInsta(quote=quote, author=author)
         
         
