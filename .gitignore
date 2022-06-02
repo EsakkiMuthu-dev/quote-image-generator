@@ -2,3 +2,4 @@
 env
 *.log
 bot/__pycache__/
+config
