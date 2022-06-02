@@ -8,15 +8,17 @@ from PIL import Image, ImageDraw, ImageFont
 from .config import Config
 import requests
 from .Utils import Utils
-import instabot
+from instagrapi import Client
+
 class Bot():
 
     def __init__(self, config) -> None:
         """Automatically post a random image and a random programming quote to the instagram."""
         self.config = config
         self.utils = Utils()
-        self.bot = instabot.Bot()
-        self.bot.login(username=self.config.getEnvVariable("username"), password=self.config.getEnvVariable("password"))
+        self.client = Client()
+
+        self.client.login(self.config.getEnvVariable("username"), self.config.getEnvVariable("password"))
 
     def getRandomImage(self) -> Image:
         """Get a random image from the instagram."""
@@ -69,12 +71,13 @@ class Bot():
 
         try:
             imagepath = os.path.join(os.path.dirname(__file__), "img.jpg")
-            print("Image Posted")
             caption = f"{self.utils.formatTheString(quote)}\n\n- {author} + \n #lazyinstabot \n Lazy Insta Bot \U0001f600 Coded and Managed By @rassouniqz...follow for more posts \n #programming #coding #python #bot #programmingquotes #daily #codemore codedaily #developer"
-           
-            self.bot.upload_photo(imagepath, caption=caption)
-            print("Posted to instagram")
+
+            self.client.photo_upload(imagepath, caption=caption)
+            print("Photo Uploaded...")
+
         except Exception as e:
+            print(e)
             print("Failed to post to instagram")
 
     def main(self) -> None:

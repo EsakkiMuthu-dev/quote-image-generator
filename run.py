@@ -3,9 +3,9 @@ from time import time
 import bot
 import schedule
 
-schedule.every(20).minutes.do(bot.main)
+schedule.every(10).minutes.do(bot.main)
 
 while True:
     schedule.run_pending()
-    if(os.path.isfile("config/rassouniqz_uuid_and_cookie.json")):
-        os.remove("config/rassouniqz_uuid_and_cookie.json")
+
+# bot.main()
