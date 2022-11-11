@@ -1,11 +1,5 @@
-import os
-from time import time
-import bot
-import schedule
+from src import App
 
-schedule.every(10).minutes.do(bot.main)
-
-while True:
-    schedule.run_pending()
-
-# bot.main()
+if __name__ == "__main__":
+    app = App()
+    app.generate()
