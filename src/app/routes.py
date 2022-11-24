@@ -11,6 +11,7 @@ class Routes():
         def index():
             return render_template("base.html", name="Rasla")
 
+        # route to get image
         @app.route("/download", methods=["POST", "GET"])
         def download():
             if request.method == "POST":
