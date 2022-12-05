@@ -2,6 +2,7 @@ from flask import render_template, send_file, request
 from src import Image
 from src.config.config import Config
 
+# this class is resonsible for all routes
 class Routes():
 
     def __init__(self, app) -> None:
