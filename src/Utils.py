@@ -4,6 +4,7 @@ class Utils:
     def isImageBright(self, image : Image):
         return image.getextrema()[0][0] < 0
 
+    # get the quote from the api and make it formatted
     def formatTheString(self, quote: str, author : str) -> str:
         """Format the string."""
         word_per_line = 3
