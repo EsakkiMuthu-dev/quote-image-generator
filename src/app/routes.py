@@ -1,12 +1,11 @@
 from flask import render_template, send_file, request
 from src import Image
-from src.config.config import Config
+from src.config import Config
 
 # this class is resonsible for all routes
-class Routes():
-
+class Routes:
     def __init__(self, app) -> None:
-        
+
         # main route
         @app.route("/")
         def index():
