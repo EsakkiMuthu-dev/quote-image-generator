@@ -36,10 +36,10 @@ class Image:
         )
         image_draw = ImageDraw.Draw(image)
 
-        fontsize = 35
+        fontsize = 55
 
         if length_of_quote <= 13:
-            fontsize = 45
+            fontsize = 65
 
         image_font = ImageFont.truetype(self.config.loadfont_path(), fontsize)
 
@@ -55,13 +55,13 @@ class Image:
 
     def getRandomQuote(self):
 
-        url = self.config.get("programming_qoute_url")
+        url = self.config.get("quotable_apiurl")
         response = requests.get(url)
 
         if response.status_code == 200:
-            return {"quote": response.json()["en"], "author": response.json()["author"]}
+            return {"quote": response.json()["content"], "author": response.json()["author"]}
         else:
-            return False
+            return {"quote": "", "author": ""}
 
     def main(self):
         self.getRandomImage()

@@ -17,4 +17,4 @@ class Routes:
             if request.method == "POST":
                 img = Image.Image().main()
                 config = Config()
-                return send_file(config.loadimage_path())
+                return send_file(config.loadimage_path(), as_attachment=True)

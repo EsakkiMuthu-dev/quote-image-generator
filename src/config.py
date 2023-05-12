@@ -7,15 +7,15 @@ class Config:
 
     def get(self, key):
         config = {
-            "image_apiurl": "https://source.unsplash.com/random/400x400",
-            "programming_qoute_url": "https://programming-quotes-api.herokuapp.com/quotes/random",
-            "image_width": "400",
-            "image_height": "400",
+            "image_apiurl": "https://source.unsplash.com/1080x1080/?nature",
+            "quotable_apiurl": "https://api.quotable.io/random",
+            "image_width": "1080",
+            "image_height": "1080",
         }
         return config[key]
 
     def loadfont_path(self):
-        return os.path.join("fonts", "Roboto-Regular.ttf")
+        return os.path.join("fonts", "Anton-Regular.ttf")
 
     def loadimage_path(self):
-        return os.path.join("image.png")
+        return os.path.join(os.getcwd(), "image.png")
