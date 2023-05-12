@@ -19,3 +19,6 @@ class Config:
 
     def loadimage_path(self):
         return os.path.join(os.getcwd(), "image.png")
+    
+    def loadmusic_path(self):
+        return os.path.join(os.getcwd(), "music.mp3")

@@ -62,7 +62,7 @@ class Image:
             return {"quote": response.json()["content"], "author": response.json()["author"]}
         else:
             return {"quote": "", "author": ""}
-
+        
     def main(self):
         self.getRandomImage()
         quote, author = self.getRandomQuote()["quote"], self.getRandomQuote()["author"]
