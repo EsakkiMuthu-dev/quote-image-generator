@@ -1,5 +1,5 @@
 from PIL import Image
-
+import moviepy.editor as np
 class Utils:
     def isImageBright(self, image : Image):
         return image.getextrema()[0][0] < 0
@@ -24,4 +24,11 @@ class Utils:
         fresh_sentence += f"\n\n - {author}"
 
         return [fresh_sentence, total_len]
-        
+    
+    def resize_func(t, duration):
+        if t < 4:
+            return 1 + 0.2*t  # Zoom-in.
+        elif 4 <= t <= 6:
+            return 1 + 0.2*4  # Stay.
+        else: # 6 < t
+            return 1 + 0.2*(duration-t)
