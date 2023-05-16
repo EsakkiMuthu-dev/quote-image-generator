@@ -1,1 +1,1 @@
-# A Website to create random quote images
+# A Website to create Video Quotes and Image Quotes Randomly
