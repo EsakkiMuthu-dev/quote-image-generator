@@ -1,1 +1,1 @@
-# A Website to create Video Quotes and Image Quotes Randomly
+# A Api that provide quotes images with lot of customization
